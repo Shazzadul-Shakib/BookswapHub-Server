@@ -7,6 +7,7 @@ export const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("/",async(req,res)=>{
+
+app.get("/",(_,res)=>{
     res.status(200).json({message:"Server is running"});
 })
