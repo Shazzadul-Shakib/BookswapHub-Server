@@ -13,7 +13,7 @@ app.use(cors());
 app.use("/api/v1",appRouter);
 
 app.get("/",(_,res)=>{
-    res.status(200).json({message:"Server is running"});
+    res.status(200).json({message:"Server is running okay..."});
 })
 
 app.use(globalErrorHandler);
