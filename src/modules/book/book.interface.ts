@@ -2,7 +2,7 @@ import { Schema } from "mongoose";
 
 export type TBook={
     _id:Schema.Types.ObjectId;
-    name:string;
-    description:string;
+    bookName:string;
+    bookDescription:string;
     bookImage:string;
 }

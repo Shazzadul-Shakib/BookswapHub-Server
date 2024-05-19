@@ -2,8 +2,8 @@ import { Schema, model } from "mongoose";
 import { TBook } from "./book.interface";
 
 const BookSchema = new Schema<TBook>({
-  name: { type: String, required: true },
-  description: { type: String, required: true },
+  bookName: { type: String, required: true },
+  bookDescription: { type: String, required: true },
   bookImage: { type: String, required: true },
 });
 
