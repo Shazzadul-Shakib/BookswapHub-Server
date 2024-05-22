@@ -10,10 +10,10 @@ app.use(express.json());
 app.use(cors());
 
 // ----- Routers ----- //
-app.use("/api/v1",appRouter);
+app.use("/api/v1", appRouter);
 
-app.get("/",(_,res)=>{
-    res.status(200).json({message:"Server is running okay..."});
-})
+app.get("/", (_, res) => {
+  res.status(200).json({ message: "Server is running okay..." });
+});
 
 app.use(globalErrorHandler);
