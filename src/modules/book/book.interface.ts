@@ -5,4 +5,6 @@ export type TBook = {
   bookName: string;
   bookDescription: string;
   bookImage: string;
+  userId:string;
+  userEmail:string;
 };
