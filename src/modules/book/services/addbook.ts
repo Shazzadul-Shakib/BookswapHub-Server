@@ -5,12 +5,12 @@ import { Book } from "../book.model";
 export const addBook = async (payload: Omit<TBook, "_id">) => {
   const { userEmail, ...bookData } = payload;
 
-  const user = await User.findOne({ userEmail });
-  const userId = user?._id.toHexString();
+  const userInfo = await User.findOne({ userEmail });
+  const user = userInfo?._id.toHexString();
 
   const newPayload = {
     ...bookData,
-    userId,
+    user,
   };
 
   const newBook = await Book.create(newPayload);
