@@ -7,4 +7,7 @@ export type TBook = {
   bookImage: string;
   user:string;
   userEmail:string;
+  author:string;
+  language:string;
+  page:number;
 };
