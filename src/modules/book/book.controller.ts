@@ -22,4 +22,13 @@ const getBook=tryCatch(async(req,res)=>{
   })
 })
 
-export const bookController = { addBook,getBook };
+const getSigleBook=tryCatch(async(req,res)=>{
+  const book=await bookServices.getbook(req.params.bookId);
+  sendSuccessResponse(res, {
+    status: 200,
+    message: "Book retrived successfully",
+    data: book,
+  });
+})
+
+export const bookController = { addBook, getBook, getSigleBook };

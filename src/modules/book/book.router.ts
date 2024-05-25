@@ -5,3 +5,5 @@ export const bookRouter = Router();
 
 bookRouter.post("/", bookController.addBook);
 bookRouter.get("/",bookController.getBook);
+bookRouter.get("/:bookId",bookController.getSigleBook);
+
