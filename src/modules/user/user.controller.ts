@@ -21,4 +21,14 @@ const addUser = tryCatch(async (req, res) => {
   }
 });
 
-export const userController = { addUser };
+const updateUserBorroedBooks=tryCatch(async(req,res)=>{
+  const result=await userServices.updateUserBorrwedBook(req.params.userEmail, req.body);
+
+  sendSuccessResponse(res,{
+    status:200,
+    message:"New borrowed Book added successfully",
+    data:result
+  })
+})
+
+export const userController = { addUser,updateUserBorroedBooks };
