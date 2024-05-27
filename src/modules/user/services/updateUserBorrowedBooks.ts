@@ -5,12 +5,9 @@ export const updateUserBorrwedBook = async (
   userEmail: string,
   payload: Omit<TBorrowedBook, "_id">
 ) => {
-  const { borrowerEmail, ...rest } = payload;
+  const { borrowerEmail, ...borrowedBookInfo } = payload;
 
-  const userInfo = await User.findOne({ userEmail });
-  const borrowerUserId = userInfo?._id.toHexString();
-
-  const newPayload = { ...rest, borrowerUserId };
+  const newPayload =  {...borrowedBookInfo} ;
 
   // Update the user with the provided payload
   const updatedUser = await User.findOneAndUpdate(

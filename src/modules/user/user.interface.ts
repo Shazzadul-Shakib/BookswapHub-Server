@@ -15,7 +15,8 @@ export type TBorrowedBook = {
   borrowerAddress: string;
   borrowerCity: string;
   borrowerEmail: string;
-  borrowerUserId:string;
+  bookOwnerUserId:string;
+  borrowerUserId: string;
   borrowerName: string;
   contactNumber: string;
   deadline: string;
