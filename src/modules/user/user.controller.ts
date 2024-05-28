@@ -21,14 +21,31 @@ const addUser = tryCatch(async (req, res) => {
   }
 });
 
-const updateUserBorroedBooks=tryCatch(async(req,res)=>{
-  const result=await userServices.updateUserBorrwedBook(req.params.userEmail, req.body);
+const updateUserBorroedBooks = tryCatch(async (req, res) => {
+  const result = await userServices.updateUserBorrwedBook(
+    req.params.userEmail,
+    req.body
+  );
 
-  sendSuccessResponse(res,{
-    status:200,
-    message:"New borrowed Book added successfully",
-    data:result
-  })
-})
+  sendSuccessResponse(res, {
+    status: 200,
+    message: "New borrowed Book added successfully",
+    data: result,
+  });
+});
 
-export const userController = { addUser,updateUserBorroedBooks };
+const getUserBorrowedBooks = tryCatch(async (req, res) => {
+  const result = await userServices.getUserBorrowedBooks(req.params.userEmail);
+  
+  sendSuccessResponse(res, {
+    status: 200,
+    message: "User with borrowed Books info got successfully",
+    data: result,
+  });
+});
+
+export const userController = {
+  addUser,
+  updateUserBorroedBooks,
+  getUserBorrowedBooks,
+};

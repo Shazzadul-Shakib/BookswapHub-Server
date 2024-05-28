@@ -5,17 +5,17 @@ export type TUser = {
   userName: string;
   userEmail: string;
   userImage: string;
-  borrowedBooks:[];
+  borrowedBooks: Schema.Types.ObjectId[];
 };
 
 export type TBorrowedBook = {
-  id: Schema.Types.ObjectId;
-  bookId: string;
+  _id: Schema.Types.ObjectId;
+  bookId: Schema.Types.ObjectId;
   borrowed: boolean;
   borrowerAddress: string;
   borrowerCity: string;
   borrowerEmail: string;
-  bookOwnerUserId:string;
+  bookOwnerUserId: Schema.Types.ObjectId;
   borrowerUserId: string;
   borrowerName: string;
   contactNumber: string;
