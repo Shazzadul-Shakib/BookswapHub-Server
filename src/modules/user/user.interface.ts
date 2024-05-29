@@ -6,6 +6,7 @@ export type TUser = {
   userEmail: string;
   userImage: string;
   borrowedBooks: Schema.Types.ObjectId[];
+  userNotification: Schema.Types.ObjectId[];
 };
 
 export type TBorrowedBook = {
@@ -21,4 +22,15 @@ export type TBorrowedBook = {
   contactNumber: string;
   deadline: string;
   pending: boolean;
+};
+
+export type TOwnerNotifyInfo = {
+  _id: Schema.Types.ObjectId;
+  bookId: Schema.Types.ObjectId;
+  borrowerAddress: string;
+  borrowerCity: string;
+  borrowerUserId: Schema.Types.ObjectId;
+  borrowerName: string;
+  contactNumber: string;
+  deadline: string;
 };
