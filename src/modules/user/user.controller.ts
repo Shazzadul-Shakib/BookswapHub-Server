@@ -36,7 +36,7 @@ const updateUserBorroedBooks = tryCatch(async (req, res) => {
 
 const getUserBorrowedBooks = tryCatch(async (req, res) => {
   const result = await userServices.getUserBorrowedBooks(req.params.userEmail);
-  
+
   sendSuccessResponse(res, {
     status: 200,
     message: "User with borrowed Books info got successfully",
@@ -44,8 +44,36 @@ const getUserBorrowedBooks = tryCatch(async (req, res) => {
   });
 });
 
+const updateUserBorrowedBookStatus = tryCatch(async (req, res) => {
+  const { userId, bookId } = req.params;
+  const { confirmation } = req.body;
+
+  const result = await userServices.updateUserBorrowedBookStatus(
+    userId,
+    bookId,
+    { confirmation }
+  );
+
+  if (confirmation) {
+    sendSuccessResponse(res, {
+      status: 200,
+      message:
+        "User with borrowed Books confirmation status updated successfully",
+      data: result,
+    });
+  } else {
+    sendSuccessResponse(res, {
+      status: 200,
+      message:
+        "User with borrowed Books confirmation status updated successfully",
+      data: {},
+    });
+  }
+});
+
 export const userController = {
   addUser,
   updateUserBorroedBooks,
   getUserBorrowedBooks,
+  updateUserBorrowedBookStatus,
 };

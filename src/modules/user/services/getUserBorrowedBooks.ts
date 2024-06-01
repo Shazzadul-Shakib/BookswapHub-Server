@@ -1,6 +1,6 @@
 import { User } from "../user.model";
 
-// actually here im having the whole user data with borrowedbooks and notifications
+//having the whole user data with borrowedbooks and notifications
 export const getUserBorrowedBooks = async (userEmail: String) => {
   const currentUserInfo = await User.find({ userEmail: userEmail })
     .populate({

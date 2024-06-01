@@ -1,4 +1,5 @@
 import { Schema } from "mongoose";
+import { boolean } from "zod";
 
 export type TUser = {
   _Id: Schema.Types.ObjectId;
@@ -21,9 +22,12 @@ export type TBorrowedBook = {
   borrowerName: string;
   contactNumber: string;
   deadline: string;
-  pending: boolean;
+  pending: boolean | null;
+  confirmationCode:number |null;
 };
-
+export type ConfirmationPayload= {
+  confirmation: boolean | null;
+}
 export type TOwnerNotifyInfo = {
   _id: Schema.Types.ObjectId;
   bookId: Schema.Types.ObjectId;

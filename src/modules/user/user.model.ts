@@ -2,14 +2,15 @@ import { Schema, model } from "mongoose";
 import { TBorrowedBook, TOwnerNotifyInfo, TUser } from "./user.interface";
 
 const BorrowedBookSchema = new Schema<TBorrowedBook>({
-  bookId: { type: String,ref:"book", required: true },
+  bookId: { type: String, ref: "book", required: true },
   borrowed: { type: Boolean, required: true },
   borrowerAddress: { type: String, required: true },
   borrowerCity: { type: String, required: true },
-  bookOwnerUserId: { type: String, ref:"user", required: true },
+  bookOwnerUserId: { type: String, ref: "user", required: true },
   contactNumber: { type: String, required: true },
   deadline: { type: String, required: true },
-  pending: { type: Boolean, required: true },
+  pending: { type: Boolean, default: null },
+  confirmationCode: { type: Number, default: null },
 });
 
 const BookOwnerNotifySchema = new Schema<TOwnerNotifyInfo>({
@@ -29,4 +30,4 @@ const UserSchema = new Schema<TUser>({
   userNotification: [BookOwnerNotifySchema],
 });
 
-export const User=model("user",UserSchema);
+export const User = model("user", UserSchema);
