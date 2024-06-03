@@ -9,6 +9,7 @@ const BookSchema = new Schema<TBook>({
   author: { type: String, required: true },
   language: { type: String, required: true },
   page: { type: Number, required: true },
+  borrowed:{type:Boolean, default:false}
 });
 
 export const Book = model("book", BookSchema);

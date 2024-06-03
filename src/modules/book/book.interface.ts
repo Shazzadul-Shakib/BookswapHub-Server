@@ -5,9 +5,10 @@ export type TBook = {
   bookName: string;
   bookDescription: string;
   bookImage: string;
-  user:string;
-  userEmail:string;
-  author:string;
-  language:string;
-  page:number;
+  user: string;
+  userEmail: string;
+  author: string;
+  language: string;
+  page: number;
+  borrowed: boolean;
 };

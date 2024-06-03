@@ -37,4 +37,5 @@ export type TOwnerNotifyInfo = {
   borrowerName: string;
   contactNumber: string;
   deadline: string;
+  confirm:boolean;
 };

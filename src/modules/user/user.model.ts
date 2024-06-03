@@ -20,6 +20,7 @@ const BookOwnerNotifySchema = new Schema<TOwnerNotifyInfo>({
   borrowerUserId: { type: String, ref: "user", required: true },
   contactNumber: { type: String, required: true },
   deadline: { type: String, required: true },
+  confirm: { type: Boolean, required: true },
 });
 
 const UserSchema = new Schema<TUser>({
