@@ -1,6 +1,7 @@
 import { Types } from "mongoose";
 import { User } from "../user.model";
 import { ConfirmationPayload } from "../user.interface";
+import { Book } from "../../book/book.model";
 
 export const updateUserBorrowedBookStatus = async (
   userId: string,
@@ -28,6 +29,7 @@ export const updateUserBorrowedBookStatus = async (
     );
     return { ...updatedUserConfirmationStatus, confirmationCode };
   } else {
+    // If reject update borrowed book status pendng false means rejected
     const updatedUserConfirmationStatus = await User.findOneAndUpdate(
       {
         _id: new Types.ObjectId(userId),
@@ -43,6 +45,17 @@ export const updateUserBorrowedBookStatus = async (
         new: true,
       }
     );
+
+    // Then delete the notification of the owner
+    const ownerInfo = await Book.findOne({ _id: bookId });
+    const ownerUserId = ownerInfo?.user;
+
+    await User.findOneAndUpdate(
+      { _id: ownerUserId },
+      { $pull: { userNotification: { bookId: bookId } } },
+      { new: true }
+    );
+
     return updatedUserConfirmationStatus;
   }
 };
