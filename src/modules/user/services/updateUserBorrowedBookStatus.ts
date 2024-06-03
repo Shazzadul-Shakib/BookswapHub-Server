@@ -8,7 +8,6 @@ export const updateUserBorrowedBookStatus = async (
   payload: ConfirmationPayload
 ) => {
   const { confirmation } = payload;
-  console.log(confirmation)
 
   if (confirmation) {
     const confirmationCode = Math.floor(1000 + Math.random() * 9000);

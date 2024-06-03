@@ -6,5 +6,11 @@ export const userRouter = Router();
 userRouter.post("/", userController.addUser);
 userRouter.patch("/:userEmail", userController.updateUserBorroedBooks);
 userRouter.get("/:userEmail", userController.getUserBorrowedBooks);
-userRouter.patch("/:userId/:bookId", userController.updateUserBorrowedBookStatus);
-
+userRouter.patch(
+  "/status/:userId/:bookId",
+  userController.updateUserBorrowedBookStatus
+);
+userRouter.patch(
+  "/confirm/:borrowerUserId/:borrowedBookId",
+  userController.confirmBorrowedBookStatus
+);
