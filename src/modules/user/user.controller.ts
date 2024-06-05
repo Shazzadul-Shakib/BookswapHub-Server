@@ -83,10 +83,27 @@ const confirmBorrowedBookStatus = tryCatch(async (req, res) => {
   });
 });
 
+const deleteRejectedRequest = tryCatch(async (req, res) => {
+  const { borrowerUserId, borrowedrequestId } = req.params;
+
+    const result = await userServices.deleteRejectedBorrowedRequest(
+      borrowerUserId,
+      borrowedrequestId
+    );
+
+    sendSuccessResponse(res, {
+      status: 200,
+      message: "Deleted rejected request successfully",
+      data: result,
+    });
+});
+
+
 export const userController = {
   addUser,
   updateUserBorroedBooks,
   getUserBorrowedBooks,
   updateUserBorrowedBookStatus,
   confirmBorrowedBookStatus,
+  deleteRejectedRequest,
 };

@@ -14,3 +14,7 @@ userRouter.patch(
   "/confirm/:borrowerUserId/:borrowedBookId",
   userController.confirmBorrowedBookStatus
 );
+userRouter.patch(
+  "/delete/:borrowerUserId/:borrowedrequestId",
+  userController.deleteRejectedRequest
+);

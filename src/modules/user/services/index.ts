@@ -1,4 +1,5 @@
 import { addUser } from "./addUser";
+import { deleteRejectedBorrowedRequest } from "./deleterejectedBorrowedRequest";
 import { getUserBorrowedBooks } from "./getUserBorrowedBooks";
 import { updateConfirmBorrowedBook } from "./updateConfirmBorrowedBook";
 import { updateUserBorrowedBookStatus } from "./updateUserBorrowedBookStatus";
@@ -9,5 +10,6 @@ export const userServices = {
   updateUserBorrwedBook,
   getUserBorrowedBooks,
   updateUserBorrowedBookStatus,
-  updateConfirmBorrowedBook
+  updateConfirmBorrowedBook,
+  deleteRejectedBorrowedRequest
 };
