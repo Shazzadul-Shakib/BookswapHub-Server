@@ -1,5 +1,4 @@
 import { Schema } from "mongoose";
-import { boolean } from "zod";
 
 export type TUser = {
   _Id: Schema.Types.ObjectId;
@@ -8,6 +7,7 @@ export type TUser = {
   userImage: string;
   borrowedBooks: Schema.Types.ObjectId[];
   userNotification: Schema.Types.ObjectId[];
+  userBookmark: Schema.Types.ObjectId[];
 };
 
 export type TBorrowedBook = {
@@ -39,3 +39,9 @@ export type TOwnerNotifyInfo = {
   deadline: string;
   confirm:boolean;
 };
+
+export type TBookmark={
+  _id:Schema.Types.ObjectId;
+  bookId:Schema.Types.ObjectId;
+  bookmarked:boolean;
+}

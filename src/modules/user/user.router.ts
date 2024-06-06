@@ -18,3 +18,7 @@ userRouter.patch(
   "/delete/:borrowerUserId/:borrowedrequestId",
   userController.deleteRejectedRequest
 );
+userRouter.patch(
+  "/bookmark/:ownerEmail",
+  userController.updateBookmark
+);

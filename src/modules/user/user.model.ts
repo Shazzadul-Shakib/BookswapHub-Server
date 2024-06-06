@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-import { TBorrowedBook, TOwnerNotifyInfo, TUser } from "./user.interface";
+import { TBookmark, TBorrowedBook, TOwnerNotifyInfo, TUser } from "./user.interface";
 
 const BorrowedBookSchema = new Schema<TBorrowedBook>({
   bookId: { type: String, ref: "book", required: true },
@@ -23,12 +23,18 @@ const BookOwnerNotifySchema = new Schema<TOwnerNotifyInfo>({
   confirm: { type: Boolean, required: true },
 });
 
+const BookmarkSchema=new Schema<TBookmark>({
+  bookId:{type:String, ref:"book",required:true},
+  bookmarked:{type:Boolean,required:true}
+})
+
 const UserSchema = new Schema<TUser>({
   userName: { type: String, required: true },
   userEmail: { type: String, required: true },
   userImage: { type: String },
   borrowedBooks: [BorrowedBookSchema],
   userNotification: [BookOwnerNotifySchema],
+  userBookmark: [BookmarkSchema],
 });
 
 export const User = model("user", UserSchema);

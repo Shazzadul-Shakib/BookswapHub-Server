@@ -98,6 +98,18 @@ const deleteRejectedRequest = tryCatch(async (req, res) => {
     });
 });
 
+// Bookmark controller 
+const updateBookmark=tryCatch(async(req,res)=>{
+  const {ownerEmail}=req.params;
+  const result = await userServices.updateBookmarkStatus(ownerEmail,req.body);
+  if(result){
+    sendSuccessResponse(res, {
+      status: 200,
+      message: "Book added to bookmark successfully",
+      data: result,
+    });
+  }
+})
 
 export const userController = {
   addUser,
@@ -106,4 +118,5 @@ export const userController = {
   updateUserBorrowedBookStatus,
   confirmBorrowedBookStatus,
   deleteRejectedRequest,
+  updateBookmark
 };
