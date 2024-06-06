@@ -16,6 +16,15 @@ export const getUserBorrowedBooks = async (userEmail: String) => {
         { path: "bookId" },
         { path: "borrowerUserId", select: "userName userEmail userImage" },
       ],
+    })
+    .populate({
+      path: "userBookmark",
+      populate: [
+        {
+          path: "bookId",
+          populate: [{ path: "user", select: "userName userEmail userImage" }],
+        },
+      ],
     });
 
   return currentUserInfo;

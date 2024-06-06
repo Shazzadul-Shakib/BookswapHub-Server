@@ -22,3 +22,7 @@ userRouter.patch(
   "/bookmark/:ownerEmail",
   userController.updateBookmark
 );
+userRouter.patch(
+  "/updateProfile/:userEmail",
+  userController.updateUserProfile
+);

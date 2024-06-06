@@ -5,6 +5,7 @@ import { updateBookmarkStatus } from "./updateBookmark";
 import { updateConfirmBorrowedBook } from "./updateConfirmBorrowedBook";
 import { updateUserBorrowedBookStatus } from "./updateUserBorrowedBookStatus";
 import { updateUserBorrwedBook } from "./updateUserBorrowedBooks";
+import { updateUserProfile } from "./updateUserProfile";
 
 export const userServices = {
   addUser,
@@ -13,5 +14,6 @@ export const userServices = {
   updateUserBorrowedBookStatus,
   updateConfirmBorrowedBook,
   deleteRejectedBorrowedRequest,
-  updateBookmarkStatus
+  updateBookmarkStatus,
+  updateUserProfile,
 };

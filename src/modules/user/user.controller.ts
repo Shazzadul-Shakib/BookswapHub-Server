@@ -21,6 +21,20 @@ const addUser = tryCatch(async (req, res) => {
   }
 });
 
+// update user profile
+const updateUserProfile=tryCatch(async(req,res)=>{
+  const {userEmail}=req.params;
+  const result = await userServices.updateUserProfile(userEmail,req.body);
+
+  if(result){
+    sendSuccessResponse(res, {
+      status: 200,
+      message: "updated profile successfully",
+      data: result,
+    });
+  }
+})
+
 const updateUserBorroedBooks = tryCatch(async (req, res) => {
   const result = await userServices.updateUserBorrwedBook(
     req.params.userEmail,
@@ -118,5 +132,6 @@ export const userController = {
   updateUserBorrowedBookStatus,
   confirmBorrowedBookStatus,
   deleteRejectedRequest,
-  updateBookmark
+  updateBookmark,
+  updateUserProfile,
 };

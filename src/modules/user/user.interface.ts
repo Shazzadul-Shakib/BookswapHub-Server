@@ -9,6 +9,7 @@ export type TUser = {
   userNotification: Schema.Types.ObjectId[];
   userBookmark: Schema.Types.ObjectId[];
 };
+export type UserProfileUpdatePayload = Pick<TUser, "userName" | "userImage">;
 
 export type TBorrowedBook = {
   _id: Schema.Types.ObjectId;
