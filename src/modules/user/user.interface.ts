@@ -10,6 +10,10 @@ export type TUser = {
   userBookmark: Schema.Types.ObjectId[];
 };
 export type UserProfileUpdatePayload = Pick<TUser, "userName" | "userImage">;
+export type UpdateDataType = {
+  userName: string;
+  userImage?: string;
+};
 
 export type TBorrowedBook = {
   _id: Schema.Types.ObjectId;
@@ -24,11 +28,11 @@ export type TBorrowedBook = {
   contactNumber: string;
   deadline: string;
   pending: boolean | null;
-  confirmationCode:number |null;
+  confirmationCode: number | null;
 };
-export type ConfirmationPayload= {
+export type ConfirmationPayload = {
   confirmation: boolean | null;
-}
+};
 export type TOwnerNotifyInfo = {
   _id: Schema.Types.ObjectId;
   bookId: Schema.Types.ObjectId;
@@ -38,11 +42,11 @@ export type TOwnerNotifyInfo = {
   borrowerName: string;
   contactNumber: string;
   deadline: string;
-  confirm:boolean;
+  confirm: boolean;
 };
 
-export type TBookmark={
-  _id:Schema.Types.ObjectId;
-  bookId:Schema.Types.ObjectId;
-  bookmarked:boolean;
-}
+export type TBookmark = {
+  _id: Schema.Types.ObjectId;
+  bookId: Schema.Types.ObjectId;
+  bookmarked: boolean;
+};
