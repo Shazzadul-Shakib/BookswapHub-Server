@@ -6,6 +6,7 @@ export const updateBookmarkStatus = async (
   payload: Omit<TBookmark, "_id">
 ) => {
   const { bookId, bookmarked } = payload;
+
   if (bookmarked) {
     const addToBookmark = await User.findOneAndUpdate(
       { userEmail: ownerEmail },
@@ -27,6 +28,7 @@ export const updateBookmarkStatus = async (
       },
       { new: true }
     );
+    
     return removeFromBookmark;
   }
 };

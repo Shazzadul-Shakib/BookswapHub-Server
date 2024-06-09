@@ -10,6 +10,7 @@ export type TUser = {
   userBookmark: Schema.Types.ObjectId[];
 };
 export type UserProfileUpdatePayload = Pick<TUser, "userName" | "userImage">;
+
 export type UpdateDataType = {
   userName: string;
   userImage?: string;

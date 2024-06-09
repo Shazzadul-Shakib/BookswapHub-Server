@@ -4,6 +4,8 @@ import { userController } from "./user.controller";
 export const userRouter = Router();
 
 userRouter.post("/", userController.addUser);
+userRouter.post("/jwt", userController.handleSecureLogin);
+userRouter.post("/logout", userController.handleecureLogout);
 userRouter.patch("/:userEmail", userController.updateUserBorroedBooks);
 userRouter.get("/:userEmail", userController.getUserBorrowedBooks);
 userRouter.patch(
