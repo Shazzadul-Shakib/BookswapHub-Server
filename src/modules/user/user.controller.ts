@@ -25,7 +25,6 @@ const addUser = tryCatch(async (req, res) => {
 // Login user and send token to htttp only cookie
 const handleSecureLogin = tryCatch(async (req, res) => {
   const result = await userServices.secureLogin(req.body);
-  console.log(result);
   res.cookie("token", result, {
     httpOnly: true,
     secure: true,
@@ -42,8 +41,6 @@ const handleSecureLogin = tryCatch(async (req, res) => {
 // Logout user and clear token from cookie
 
 const handleecureLogout = tryCatch(async (req, res) => {
-  const { user } = req.body;
-
   res.clearCookie("token", { maxAge: 0 });
   sendSuccessResponse(res, {
     status: 200,

@@ -13,7 +13,7 @@ const authenticateToken = (
   const token = req.cookies?.token;
 
   if (!token) {
-    res.status(401).json({ message: "Unauthorized access" }); // Unauthorized
+    res.status(401).json({ message: "Unauthorized access" });
     return;
   }
 
@@ -22,7 +22,7 @@ const authenticateToken = (
     process.env.ACCESS_TOKEN_SECRET as string,
     (err: jwt.VerifyErrors | null, user: string | JwtPayload | undefined) => {
       if (err) {
-        res.status(403).json({ message: "Forbidden access" }); // Forbidden
+        res.status(403).json({ message: "Forbidden access" });
         return;
       }
       req.user = user;

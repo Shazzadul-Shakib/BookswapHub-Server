@@ -23,7 +23,6 @@ const getBook=tryCatch(async(req,res)=>{
 })
 
 const getSigleBook=tryCatch(async(req,res)=>{
-  console.log(req.body)
   const book=await bookServices.getbook(req.params.bookId);
   sendSuccessResponse(res, {
     status: 200,
