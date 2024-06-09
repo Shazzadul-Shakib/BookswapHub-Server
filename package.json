@@ -2,11 +2,9 @@
   "name": "bookswaphub_server",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/server.js",
+  "main": "",
   "scripts": {
-    "build": "tsc",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "start": "node dist/server.js",
     "pretty": "npx prettier --write ."
   },
   "keywords": [],
