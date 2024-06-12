@@ -13,7 +13,7 @@ export const secureLogin = async (payload: any) => {
 
   // Sign the JWT
   const token = jwt.sign(tokenPayload, process.env.ACCESS_TOKEN_SECRET, {
-    expiresIn: "1y",
+    expiresIn: "30d",
   });
 
   return token;
