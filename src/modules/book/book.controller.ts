@@ -13,22 +13,39 @@ const addBook = tryCatch(async (req, res) => {
 });
 
 // ----- get book controller ----- //
-const getBook=tryCatch(async(req,res)=>{
-  const allBooks=await bookServices.getBooks();
-  sendSuccessResponse(res,{
-    status:200,
-    message:"Books retrived successfully",
-    data:allBooks
-  })
-})
+const getBook = tryCatch(async (req, res) => {
+  const allBooks = await bookServices.getBooks();
+  sendSuccessResponse(res, {
+    status: 200,
+    message: "Books retrived successfully",
+    data: allBooks,
+  });
+});
 
-const getSigleBook=tryCatch(async(req,res)=>{
-  const book=await bookServices.getbook(req.params.bookId);
+const getSigleBook = tryCatch(async (req, res) => {
+  const book = await bookServices.getbook(req.params.bookId);
   sendSuccessResponse(res, {
     status: 200,
     message: "Book retrived successfully",
     data: book,
   });
-})
+});
 
-export const bookController = { addBook, getBook, getSigleBook };
+const deleteSingleBook = tryCatch(async (req, res) => {
+  const result = await bookServices.deleteSingleBook(req.params.bookId);
+
+  if (result) {
+    sendSuccessResponse(res, {
+      status: 200,
+      message: "Book deleted successfully",
+      data: {},
+    });
+  }
+});
+
+export const bookController = {
+  addBook,
+  getBook,
+  getSigleBook,
+  deleteSingleBook,
+};

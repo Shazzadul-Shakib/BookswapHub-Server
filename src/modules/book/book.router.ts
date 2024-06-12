@@ -7,4 +7,5 @@ export const bookRouter = Router();
 bookRouter.post("/",authenticateToken, bookController.addBook);
 bookRouter.get("/", authenticateToken,bookController.getBook);
 bookRouter.get("/:bookId",authenticateToken,bookController.getSigleBook);
+bookRouter.delete("/delete/:bookId",bookController.deleteSingleBook);
 
