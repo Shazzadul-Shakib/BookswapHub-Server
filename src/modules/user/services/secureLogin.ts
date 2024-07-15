@@ -17,6 +17,6 @@ export const secureLogin = async (payload: Payload): Promise<string> => {
   const tokenPayload = { userEmail };
 
   // Sign the JWT
-  const token = jwt.sign(tokenPayload, secret, { expiresIn: "1m" });
+  const token = jwt.sign(tokenPayload, secret, { expiresIn: "30d" });
   return token;
 };
