@@ -25,11 +25,13 @@ const addUser = tryCatch(async (req, res) => {
 // Login user and send token to htttp only cookie
 const handleSecureLogin = tryCatch(async (req, res) => {
   const result = await userServices.secureLogin(req.body);
-  res.cookie("token", result, {
-    httpOnly: true,
-    secure: true,
-    sameSite: "none",
-  });
+  if(result){
+    res.cookie("token", result, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+    });
+  }
 
   sendSuccessResponse(res, {
     status: 200,
@@ -38,10 +40,10 @@ const handleSecureLogin = tryCatch(async (req, res) => {
   });
 });
 
-// Logout user and clear token from cookie
+// // Logout user and clear token from cookie
 
 const handleecureLogout = tryCatch(async (req, res) => {
-  res.clearCookie("token", { maxAge: 0 });
+  res.clearCookie("token", { maxAge: 0, httpOnly: true, secure: true });
   sendSuccessResponse(res, {
     status: 200,
     message: "Token delete successfully",

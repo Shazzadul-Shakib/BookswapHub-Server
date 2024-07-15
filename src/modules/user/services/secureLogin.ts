@@ -1,10 +1,15 @@
 import jwt from "jsonwebtoken";
 
-export const secureLogin = async (payload: any) => {
+interface Payload {
+  userEmail: string;
+}
+
+export const secureLogin = async (payload: Payload): Promise<string> => {
   const { userEmail } = payload;
 
   // Ensure the secret is defined
-  if (!process.env.ACCESS_TOKEN_SECRET) {
+  const secret = process.env.ACCESS_TOKEN_SECRET;
+  if (!secret) {
     throw new Error("ACCESS_TOKEN_SECRET is not defined");
   }
 
@@ -12,9 +17,6 @@ export const secureLogin = async (payload: any) => {
   const tokenPayload = { userEmail };
 
   // Sign the JWT
-  const token = jwt.sign(tokenPayload, process.env.ACCESS_TOKEN_SECRET, {
-    expiresIn: "30d",
-  });
-
+  const token = jwt.sign(tokenPayload, secret, { expiresIn: "1m" });
   return token;
 };
