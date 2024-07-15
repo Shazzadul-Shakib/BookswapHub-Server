@@ -43,7 +43,7 @@ const handleSecureLogin = tryCatch(async (req, res) => {
 // // Logout user and clear token from cookie
 
 const handleecureLogout = tryCatch(async (req, res) => {
-  res.clearCookie("token", { maxAge: 0, httpOnly: true, secure: true });
+  res.clearCookie("token");
   sendSuccessResponse(res, {
     status: 200,
     message: "Token delete successfully",
